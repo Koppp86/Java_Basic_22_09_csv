@@ -1,13 +1,20 @@
 package src.main.java.homeWorkOopDz4;
 
-public class Output {
-    String name;
-    String text;
-    Output(String name, String text) {
+import java.io.PrintStream;
+
+public class Output implements UserOutput{
+    private String name;
+    private final PrintStream out;
+    Output(String name, PrintStream out) {
         this.name = name;
-        this.text = text;
+        this.out = out;
     }
-    void outputLn(){
-        System.out.println(text);
-    };
+    @Override
+    public void consoleUserOutput(String message) {
+        out.println(message);
+    }
+    @Override
+    public void consoleUserOutput(String template, Object... args) {
+        out.printf(template + "%n", args);
+    }
 }

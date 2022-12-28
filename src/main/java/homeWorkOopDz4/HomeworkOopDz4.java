@@ -11,13 +11,12 @@ public class HomeworkOopDz4 {
         int[] answers = {1, 2, 3};
         String nameInput = "Ввод_1";
         String nameOutput = "Вывод_1";
-        Scanner scanner = new Scanner(System.in);
         String textOutput = "Давайте пройдем небольшой опрос. Ответом можно вводить только одну цифру варианта ответа.";
 
-        Input input1 = new Input(nameInput, scanner);
-        Output output1 = new Output(nameOutput, textOutput);
+        Input input1 = new Input(nameInput, System.in);
+        Output output1 = new Output(nameOutput, System.out);
         Test test1 = new Test(nameTest, questions, input1, answers);
-        output1.outputLn();
+        output1.consoleUserOutput(textOutput);
         test1.passTest();
     }
 }
