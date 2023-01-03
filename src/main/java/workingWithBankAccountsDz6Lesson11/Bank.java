@@ -7,14 +7,12 @@ public class Bank {
     private Set<Client> clientSet;
     private Set<Account> accountSet;
     private Map<Account, Client> accountClientMap;
-    private Map<Client, Account> clientAccountMap;
 
     public Bank(String name){
         this.name = name;
         this.clientSet = new HashSet<>();
         this.accountSet = new HashSet<>();
         this.accountClientMap = new HashMap<>();
-        this.clientAccountMap = new HashMap<>();
     }
 
     public void addClient(Client client){
@@ -25,10 +23,20 @@ public class Bank {
     }
     public void addAccountClient(Account account, Client client){
         accountClientMap.put(account, client);
-        clientAccountMap.put(client, account);
     }
-    public Account findAccountMap(Client client) {
-        return clientAccountMap.get(client);
+
+    public StringBuilder findAccountsMap(Client client) {
+        StringBuilder result = null;
+        for (Map.Entry<Account, Client> entry: accountClientMap.entrySet()){
+            if (client.equals(entry.getValue())) {
+                if (result == null) {
+                    result = new StringBuilder(Integer.toString(entry.getKey().getNnAccount()));
+                } else {
+                    result.append(", ").append(entry.getKey().getNnAccount());
+                }
+            }
+        }
+        return result;
     }
     public Client findClientMap(Account account){
         return accountClientMap.get(account);

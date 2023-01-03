@@ -40,8 +40,8 @@ public class WorkingWithBankAccountsDz6Lesson11 {
         List<Account> clientAccounts = bank1.findAccounts(client2);   // 1) Найти все счета по клиенту2
         Client foundClient = bank1.findClient(account21);             // 2) Найти клиента по счету21
 
-        Account foundAccount = bank1.findAccountMap(client2);         // 1) Найти все счета по клиенту2 (Новый поиск_1 "О(1)")
-        System.out.println("0.1) Map. Вывод Счета Клиента2 : " + foundAccount.getNnAccount());
+        StringBuilder foundAccounts = bank1.findAccountsMap(client2);         // 1) Найти все счета по клиенту2 (Новый поиск_1 "О(1)")
+        System.out.println("0.1) Map. Вывод Счета Клиента2 : " + foundAccounts);
         Client foundClient2 = bank1.findClientMap(account21);         // 2) Найти клиента по счету21 (Новый поиск_2 "О(1)")
         System.out.println("0.2) Map. Вывод Клиента Счета21: " + foundClient2.getNameClient());
 
