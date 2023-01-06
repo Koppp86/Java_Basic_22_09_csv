@@ -1,15 +1,15 @@
 package src.main.java.workingWithBankAccountsDz6Lesson11;
 
 public class Account {
-    private int nnAccount;
-    Client client;
+    private String nnAccount;
+    private Client client;
 
-    public Account(int nnAccount, Client client, String nameClient){
+    public Account(String nnAccount, Client client, String nameClient){
         this.nnAccount = nnAccount;
         this.client = client;
     }
 
-    public int getNnAccount(){
+    public String getNnAccount(){
         return nnAccount;
     }
     public Client getClient(){
