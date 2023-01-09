@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Dz10_Lesson20_JS</title>
+    <style>
+        h3 {
+            color: steelblue;
+            margin-left:10px
+        }
+
+        .formContainer {
+            border: 1px solid steelblue;
+            width: 600px;
+            height: 170px;
+            margin-left:10px
+        }
+        .formContainer label {
+            height: 16px;
+            margin-left:10px
+        }
+        #nameTextBox {
+            border: 1px solid steelblue;
+            width: 300px;
+            height: 16px;
+            margin-left:170px
+        }
+        #birthDayDateBox {
+            border: 1px solid steelblue;
+            width: 300px;
+            height: 20px;
+            margin-left:160px
+        }
+        .formContainer select {
+            border: 1px solid steelblue;
+            width: 305px;
+            height: 20px;
+            margin-left:235px
+        }
+        .formContainer button {
+            margin:10px
+        }
+
+        .students-tab {
+            border: 1px solid steelblue;
+            width: 650px;
+            border-collapse: collapse;
+            margin-left:10px
+        }
+        .students-tab tr td {
+            border: 1px solid steelblue;
+        }
+        .students-tab-col1 {
+            width: 300px;
+        }
+        .students-tab-col2 {
+            width: 120px;
+        }
+        .students-tab-col3 {
+            width: 150px;
+        }
+        .students-tab-col4 {
+            width: 80px;
+        }
+    </style>
+    <script>
+        "use strict"
+
+        function addStudent() {
+            const studentsTab = document.getElementById("studentsTab");
+            const studentName = document.getElementById("nameTextBox").value;
+            const studentGender = document.getElementById("genderSelectBox").value;
+            const studentBirthDay = document.getElementById("birthDayDateBox").value;
+            const studentYear = Math.floor((new Date() - new Date(studentBirthDay)) / 1000 / 60 / 60 / 24 / 365)
+
+            const newRow = studentsTab.insertRow(studentsTab.rows.length - 2);
+
+            const newCell0 = newRow.insertCell(0);
+            newCell0.appendChild(document.createTextNode(studentName));
+            const newCell1 = newRow.insertCell(1);
+            newCell1.appendChild(document.createTextNode(studentGender));
+            const newCell2 = newRow.insertCell(2);
+            newCell2.appendChild(document.createTextNode(studentBirthDay));
+            const newCell3 = newRow.insertCell(3);
+            newCell3.appendChild(document.createTextNode(studentYear));
+
+            let cntRows = studentsTab.rows.length - 3
+            let smYear = 0
+            for (let i = 1; i < studentsTab.rows.length - 2; i++) {
+              smYear += Number(studentsTab.rows[i].cells[3].innerText)
+            }
+
+            studentsTab.rows[studentsTab.rows.length - 1].cells[1].innerHTML = smYear / cntRows
+        }
+
+    </script>
+</head>
+<body>
+    <h3>Форма добавления информации о студенте</h3>
+
+    <form class = "formContainer">
+        <p>
+            <label for = "nameTextBox">Имя студента:</label>
+            <input id = "nameTextBox" type = "text" value = "Вася"/>
+        </p>
+        <p>
+            <label for = "birthDayDateBox">Дата рождения:</label>
+            <input id = "birthDayDateBox" type = "date" value = "1980-03-30">
+        </p>
+        <p>
+            <label for = "birthDayDateBox">Пол:</label>
+            <select id = "genderSelectBox">
+                <option value = "женщина" selected>женщина</option>
+                <option value = "мужчина">мужчина</option>
+            </select>
+        </p>
+
+        <button type = "button" onclick = "addStudent()">Добавить</button>
+    </form>
+
+    <h3>Таблица студентов</h3>
+
+    <table class="students-tab" id="studentsTab">
+        <thead>
+            <tr>
+                <td class="students-tab-col1">Имя студента</td>
+                <td class="students-tab-col2">Пол</td>
+                <td class="students-tab-col3">Дата рождения</td>
+                <td class="students-tab-col4">Возраст</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Иван Ограномович Штейн</td>
+                <td>мужчина</td>
+                <td>12.06.1974</td>
+                <td>46</td>
+            </tr>
+            <tr>
+                <td>Гертруда Анатольевна Иванова</td>
+                <td>женщина</td>
+                <td>01.01.1987</td>
+                <td>34</td>
+            </tr>
+            <tr>
+                <td>Воланд Игоревич Муха</td>
+                <td>мужчина</td>
+                <td>27.04.1974</td>
+                <td>47</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="3">Средний возраст студентов</td>
+                <td>42</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
