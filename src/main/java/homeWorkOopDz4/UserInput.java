@@ -1,0 +1,5 @@
+package src.main.java.homeWorkOopDz4;
+
+public interface UserInput {
+    String consoleUserInput();
+}
