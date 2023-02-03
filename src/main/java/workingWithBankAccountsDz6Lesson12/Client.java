@@ -1,4 +1,4 @@
-package src.main.java.workingWithBankAccountsDz6Lesson11;
+package src.main.java.workingWithBankAccountsDz6Lesson12;
 
 public class Client {
     private String name;
@@ -8,10 +8,9 @@ public class Client {
         this.name = name;
     }
 
-    public String getNameClient() {
+    public String getName() {
         return name;
     }
-
     @Override
     public int hashCode() {
         return name.hashCode();
