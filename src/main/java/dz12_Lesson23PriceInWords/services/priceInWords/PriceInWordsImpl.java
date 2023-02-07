@@ -1,7 +1,7 @@
-package src.main.java.dz12_Lesson23PriceInWords.services;
+package src.main.java.dz12_Lesson23PriceInWords.services.priceInWords;
+//package services.priceInWords;
 
 import com.ibm.icu.text.RuleBasedNumberFormat;
-
 import java.util.Locale;
 
 public class PriceInWordsImpl implements PriceInWords{

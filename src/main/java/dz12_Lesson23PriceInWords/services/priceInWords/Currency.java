@@ -1,7 +1,5 @@
-package src.main.java.dz12_Lesson23PriceInWords.services;
-
-import com.ibm.icu.text.RuleBasedNumberFormat;
-import java.util.Locale;
+package src.main.java.dz12_Lesson23PriceInWords.services.priceInWords;
+//package services.priceInWords;
 
 public enum Currency {
     // "рубль", "рубля", "рублей"
